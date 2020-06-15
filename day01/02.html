@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证码匹配的问题</title>
+    <script src="utils.js"></script>
+    <style>
+        ::selection {
+            background: none;
+        }
+
+        input {
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        span {
+            padding: 0px 10px;
+            line-height: 30px;
+            height: 30px;
+            background: #ccc;
+            vertical-align: middle;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="val">
+    <span id="code"></span>
+    <input type="button" value="验证" id="btn">
+
+    <script>
+        function createCode() {
+            var num = '';
+            for (var i = 0; i < 4; i++) {
+                num += randomNum(0, 9);
+            }
+            return num;
+        }
+        code.innerHTML = createCode();
+
+        code.onclick = function () {
+            code.innerHTML = createCode();
+        }
+
+        btn.onclick = function () {
+            if (val.value === code.innerHTML) {
+                document.write('验证成功')
+            } else {
+                document.write('验证失败');
+                // 当验证失败的时候重新刷新验证码
+                code.innerHTML = createCode();
+                // 把输入验证码的输入框清空
+                val.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
