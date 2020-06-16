@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角。试编程。
+        提示：多维数组，也就是数组里面的数据也是数组（二维数据）*/
+
+        var arr = [];
+        var arr1 = [];
+        for (var i = 1; i <= 25; i++) {
+            arr.push(i)
+            //每五个数组成一个数组
+            if (i % 5 == 0) {
+                arr1.push(arr)
+                arr = []
+            }
+        }
+        console.log(arr1);
+    </script>
+</body>
+
+</html>

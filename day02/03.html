@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="num">
+    <input type="button" value="插入" id="btn">
+    <p id="output"></p>
+    <script>
+        //有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+        var output = document.getElementById('output');
+        var arr = [2, 6, 11, 66, 23, 15, 32, 42];
+        paixu(arr);
+        // 一打开页面就排序已有数组并显示在页面中
+
+        btn.onclick = function () {
+            // 给按钮绑定点击事件，点击的时候，获取输入框的值，并把值添加到数组中
+            if (num.value) {
+                arr.push(num.value);
+                // 数组中的数据改变，页面的数据相应改变，重新执行函数
+                paixu(arr);
+            }
+        }
+
+        function paixu(arr) {
+            //把数组从小到大排序
+            arr.sort(function (a, b) {
+                return a - b;
+            })
+            // 在页面上输出结果
+            output.innerHTML = '[' + arr + ']'
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <SCript>
+        /*定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；
+        然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程。*/
+
+        // 定义一个数组用于存放从2开始的偶数整数
+        var arr = [];
+        for (var i = 1; i <= 60; i++) {
+            if (i % 2 == 0) {
+                arr.push(i)
+            }
+        }
+        console.log(arr);
+
+        //定义一个数组用于存放每五个数的平均值
+        var arr1 = []
+        var res = 0
+        for (var j = 1; j <= arr.length; j++) {
+            if (j % 5 == 0) {
+                //每五个数求一次平均值
+                res = (arr[j - 5] + arr[j - 4] + arr[j - 3] + arr[j - 2] + arr[j - 1]) / 5
+                arr1.push(res)
+            }
+        }
+        console.log(arr1);
+    </SCript>
+</body>
+
+</html>
