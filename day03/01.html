@@ -35,7 +35,8 @@
     <input type="button" value="根据销量排序" id="btn3">
 
     <ul>
-        <!-- <li>
+        <!-- 写一个结构，根据结构写样式，然后把这个结构注释掉
+         <li>
             <h2><img src="img/1.jpg" alt=""></h2>
             <h2>名称:SEL1635GM F2.8</h2>
             <p>颜色：灰黑</p>
@@ -80,6 +81,8 @@
             }
         ];
 
+        //遍历数据，根据数据动态生成结构
+        //通过数组的索引把标签取出来使用
         var ul = document.getElementsByTagName('ul')[0];
         for (var i = 0; i < jingtou.length; i++) {
             console.log(jingtou[i]);
@@ -101,6 +104,7 @@
             // }
         }
 
+        //给三个标签分别绑定点击事件，更改排序方式
         btn1.onclick = function () {
             ul.innerHTML = "";
             jingtou.sort(function (a, b) {
