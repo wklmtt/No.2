@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ::selection {
+            background: none;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 0;
+            padding: 0;
+            margin: 100px auto;
+
+        }
+
+        ul li {
+            list-style: none;
+            border: 1px solid #ccc;
+            padding: 30px;
+            box-shadow: 0px 0px 5px 0px #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 设定三个按钮分别设置排序方式 -->
+    <input type="button" value="根据价格排序" id="btn1">
+    <input type="button" value="根据评价排序" id="btn2">
+    <input type="button" value="根据销量排序" id="btn3">
+
+    <ul>
+        <!-- <li>
+            <h2><img src="img/1.jpg" alt=""></h2>
+            <h2>名称:SEL1635GM F2.8</h2>
+            <p>颜色：灰黑</p>
+            <p>价格：16500</p>
+            <p>销量：200</p>
+            <p>评价：180</p>
+        </li> -->
+    </ul>
+
+    <script>
+        var jingtou = [{
+                img: "<img src='img/1.jpg'>",
+                name: 'SEL1635GM F2.8',
+                color: '灰黑',
+                num1: '16500',
+                num2: 200,
+                num3: 180
+            },
+            {
+                img: "<img src='img/2.jpg'>",
+                name: 'FE2470F2.8GM',
+                color: '灰黑',
+                num1: '14999',
+                num2: 221,
+                num3: 210
+            },
+            {
+                img: "<img src='img/3.jpg'>",
+                name: ' SEL135F18GM',
+                color: '灰黑',
+                num1: '13500',
+                num2: 311,
+                num3: 300
+            },
+            {
+                img: "<img src='img/4.jpg'>",
+                name: ' FE 85mm F1.4 GM',
+                color: '灰黑',
+                num1: '11499',
+                num2: 320,
+                num3: 290
+            }
+        ];
+
+        var ul = document.getElementsByTagName('ul')[0];
+        for (var i = 0; i < jingtou.length; i++) {
+            console.log(jingtou[i]);
+            var str = '<li>' +
+                '<h2>' + jingtou[i].img + '</h2>' +
+                '<h2>' + jingtou[i].name + '</h2>' +
+                '<p>颜色：' + jingtou[i].color + '</p>' +
+                '<p>价格：' + jingtou[i].num1 + '</p>' +
+                '<p>销量：' + jingtou[i].num2 + '</p>' +
+                '<p>评价：' + jingtou[i].num3 + '</p>' +
+                '</li>';
+            ul.innerHTML += str;
+        }
+
+        var list = document.getElementsByTagName('li');
+        for (var j = 0; j < list.length; j++) {
+            // list[j].onclick = function () {
+            //     this.style.background = '#ccc'
+            // }
+        }
+
+        btn1.onclick = function () {
+            ul.innerHTML = "";
+            jingtou.sort(function (a, b) {
+                return b.num1 - a.num1
+            });
+            for (var i = 0; i < jingtou.length; i++) {
+                var str = '<li>' +
+                    '<h2>' + jingtou[i].img + '</h2>' +
+                    '<h2>' + jingtou[i].name + '</h2>' +
+                    '<p>颜色：' + jingtou[i].color + '</p>' +
+                    '<p>价格：' + jingtou[i].num1 + '</p>' +
+                    '<p>销量：' + jingtou[i].num2 + '</p>' +
+                    '<p>评价：' + jingtou[i].num3 + '</p>' +
+                    '</li>';
+                ul.innerHTML += str;
+            }
+        }
+
+        btn2.onclick = function () {
+            ul.innerHTML = "";
+            jingtou.sort(function (a, b) {
+                return b.num2 - a.num2
+            });
+            for (var i = 0; i < jingtou.length; i++) {
+                var str = '<li>' +
+                    '<h2>' + jingtou[i].img + '</h2>' +
+                    '<h2>' + jingtou[i].name + '</h2>' +
+                    '<p>颜色：' + jingtou[i].color + '</p>' +
+                    '<p>价格：' + jingtou[i].num1 + '</p>' +
+                    '<p>销量：' + jingtou[i].num2 + '</p>' +
+                    '<p>评价：' + jingtou[i].num3 + '</p>' +
+                    '</li>';
+                ul.innerHTML += str;
+            }
+        }
+
+        btn3.onclick = function () {
+            ul.innerHTML = "";
+            jingtou.sort(function (a, b) {
+                return b.num3 - a.num3
+            });
+            for (var i = 0; i < jingtou.length; i++) {
+                var str = '<li>' +
+                    '<h2>' + jingtou[i].img + '</h2>' +
+                    '<h2>' + jingtou[i].name + '</h2>' +
+                    '<p>颜色：' + jingtou[i].color + '</p>' +
+                    '<p>价格：' + jingtou[i].num1 + '</p>' +
+                    '<p>销量：' + jingtou[i].num2 + '</p>' +
+                    '<p>评价：' + jingtou[i].num3 + '</p>' +
+                    '</li>';
+                ul.innerHTML += str;
+            }
+        }
+    </script>
+</body>
+
+</html>
