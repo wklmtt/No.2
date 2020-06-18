@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 统计字符串中每个字符的个数？以对象的形式返回
+        var str = 'abcdacbabcbababcbabcabd';
+        var obj = {};
+        for (var i = 0; i < str.length; i++) {
+            if (obj[str[i]]) {
+                obj[str[i]] += 1;
+            } else {
+                obj[str[i]] = 1;
+            }
+        }
+        console.log(obj);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给一段文章中的全部指定词语进行过滤
+        var str = 'asdasdSMasdasdasdSMsdasdasdSMsadasd'
+        while (str.indexOf('SM') !== -1) { //循环查找字符串里有没有'SM'，如果没有，停止循环
+            str = str.replace('SM', '**'); //将'SM'替换成'**'
+        }
+        console.log(str);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 编写函数，判断一个字符串是否是 “可回文字符串”
+        
+        // function newStr(str) {
+        //     var len = parseInt(str.length / 2);
+        //     for (var i = 0; i < len.length; i++) {
+        //         if (str[i] !== str[str.length - i - 1]) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // console.log(newStr("abcdedcba"));
+        // console.log(newStr("abcdchgba"));
+        function newStr(str) {
+            var len = parseInt((str.length + 1) / 2);
+            for (var i = 0; i < len; i++) {
+                if (str[i] !== str[str.length - i - 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        console.log(newStr('1abcdedcba1'));
+        console.log(newStr("abcdchgba"));
+        console.log(newStr('你好世界世好你'));
+        
+    </script>
+</body>
+
+</html>
