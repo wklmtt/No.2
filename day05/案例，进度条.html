@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 800px;
+            height: 20px;
+            margin: 100px auto;
+            border: 2px solid darkgray;
+            border-radius: 4px;
+        }
+
+        #jdt {
+            height: 20px;
+            background: darkorange;
+            border-radius: 2px;
+            float: left;
+        }
+
+        #num {
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="jdt"></div>
+        <div id="num">0%</div>
+    </div>
+
+    <script>
+        var $width = 0;
+        var timer = setInterval(function () {
+            $width += 13;
+            //当改变的宽度大于或等于800时，停止定时器，宽度只能等于800
+            if ($width >= 800) {
+                clearInterval(timer);
+                $width = 800;
+            }
+            //改变进度条的宽度
+            jdt.style.width = $width + 'px';
+            var $num = $width / 800 * 100;
+           //改变百分比的位置 
+            num.style.left = $width + 'px';
+            //进度条进度的数字
+            num.innerHTML = ($num.toFixed(2) + '%');
+        }, 50)
+    </script>
+</body>
+
+</html>

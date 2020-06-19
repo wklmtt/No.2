@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        form p input {
+            width: 300px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="form1">
+        <p><input name="textarea" type="text" value=""></p>
+        <script>
+            var second = 0;
+            var minute = 0;
+            var hour = 0;
+            window.setTimeout("interval();", 1000);
+
+            function interval() {
+                //秒数自加
+                second++;
+                // 满60秒进1分钟秒数清零重记
+                if (second == 60) {
+                    second = 0;
+                    minute += 1;
+                }
+                //满60分钟进1小时分钟清零重记
+                if (minute == 60) {
+                    minute = 0;
+                    hour += 1;
+                }
+                document.form1.textarea.value = "在本页面已停留" + hour + "小时" + minute + "分钟" + second + "秒";
+                window.setTimeout("interval();", 1000);
+            }
+        </script>
+    </form>
+</body>
+
+</html>

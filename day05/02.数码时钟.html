@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ::selection {
+            background: none;
+        }
+
+        #box {
+            margin: 100px auto;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #box span {
+            position: relative;
+            top: -10px;
+            color: black;
+            font-weight: bold;
+        }
+
+        #box img {
+            width: 20px;
+            height: 37px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <span>:</span>
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+        <span>:</span>
+        <img src="img/0.png" alt="">
+        <img src="img/0.png" alt="">
+    </div>
+
+    <script>
+        //判断数字是否大于10，小于10的在数字前面加上0
+        function shiZhong(n) {
+            if (n < 10) {
+                return '0' + n;
+            } else {
+                return '' + n;
+            }
+        }
+        //页面加载完成后执行以下函数
+        window.onload = function () {
+            var div = document.getElementById('box');
+            var img = div.getElementsByTagName('img');
+
+            function tick() {
+                //获取当前系统时间，并获取小时 分钟 秒数据
+                var date = new Date();
+                var str = shiZhong(date.getHours()) + shiZhong(date.getMinutes()) + shiZhong(date.getSeconds());
+                //定义一个变量，循环改变图片路径
+                for (var i = 0; i <= img.length; i++) {
+                    img[i].src = "img/" + str.charAt(i) + ".png";
+                }
+            }
+            //定时器，每秒启用一次
+            setInterval(tick, 1000);
+            tick();
+        }
+    </script>
+</body>
+
+</html>
