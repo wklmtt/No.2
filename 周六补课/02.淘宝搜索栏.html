@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 3000px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            position: relative;
+            height: 60px;
+            width: 100%;
+            background: orange;
+        }
+
+        #box2 {
+            position: relative;
+            height: 80px;
+            width: 100%;
+            background: orangered;
+            top: 0;
+        }
+
+        input {
+            position: relative;
+            display: block;
+            height: 30px;
+            width: 500px;
+            border: 2px solid gray;
+            border-radius: 16px;
+            margin: auto;
+            top: 24px;
+            outline: none;
+        }
+
+        #box3 {
+            position: fixed;
+            height: 80px;
+            width: 100%;
+            background: darkorange;
+            display: none;
+            top: -10px;
+        }
+
+        button {
+            position: fixed;
+            right: 10px;
+            bottom: 100px;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            display: none;
+            background: darkgray;
+        }
+
+        button img {
+            width: 30px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+
+    </div>
+    <div id="box2">
+        <input type="text" name="textarea" value="">
+
+    </div>
+    <div id="box3">
+        <input type="text" name="textarea" value="">
+    </div>
+
+    <button id="btn"><img src="shangjiantou.png" alt=""></button>
+    <script>
+        window.onscroll = function () {
+            // 当滚动条滚动到 140以上的，让搜索栏显示
+            if (scrollY >= 140) {
+                box3.style.display = 'block';
+            } else {
+                // 当滚动条小于140的时候，让搜索栏隐藏
+                box3.style.display = 'none';
+            }
+            // 当滚动条滚动到 400以上的，那么让回到顶部按钮显示
+            if (scrollY >= 400) {
+                btn.style.display = 'block';
+            } else {
+                // 当滚动条小于400的时候，让回到顶部按钮隐藏
+                btn.style.display = 'none';
+            }
+        }
+
+        var flag = false; //表示可以创建定时器
+        btn.onclick = function () {
+            // 点击的时候先清除定时器
+            clearInterval(btn.timer);
+            // 把定时器绑定在 点击的对象上 对象名.属性
+            btn.timer = setInterval(function () {
+                var y = scrollY;
+                // 当滚动的的 scrollY的值为 0 的时候，那么就要把定时器清除
+                if (y <= 0) {
+                    clearInterval(btn.timer);
+                    // 已经把定时器清除掉，下次点击可以在创建定时器
+                }
+                scrollTo(0, y - 50);
+            }, 1)
+        }
+    </script>
+</body>
+
+</html>

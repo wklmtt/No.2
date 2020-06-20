@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+
+        button {
+            position: fixed;
+            right: 10px;
+            bottom: 100px;
+            width: 80px;
+            height: 80px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">回顶</button>
+    <script>
+        window.onscroll = function () {
+            // 当滚动条滚动到 800以上的，那么让回到顶部按钮显示
+            if (scrollY >= 800) {
+                btn.style.display = 'block';
+            } else {
+                // 当滚动条小于800的时候，让回到顶部按钮隐藏
+                btn.style.display = 'none';
+            }
+        }
+
+        var flag = false; //表示可以创建定时器
+        btn.onclick = function () {
+            // 点击的时候先清除定时器
+            clearInterval(btn.timer);
+            // 把定时器绑定在 点击的对象上 对象名.属性
+            btn.timer = setInterval(function () {
+                var y = scrollY;
+                // 当滚动的的 scrollY的值为 0 的时候，那么就要把定时器清除
+                if (y <= 0) {
+                    clearInterval(btn.timer);
+                    // 已经把定时器清除掉，下次点击可以在创建定时器
+                }
+                scrollTo(0, y - 50);
+            }, 1)
+        }
+    </script>
+</body>
+
+</html>
